@@ -153,11 +153,11 @@ class QMPICommunicator:
         """
         P2PCommTeledata.qsend(self, qubits, dest_rank)
 
-    def qrecv(self, src_rank: int) -> List[Qubit]:
+    def qrecv(self, src_rank: int, expected_qubits: int = 1) -> List[Qubit]:
         """
         Receive a qubit from the source rank using teleportation.
         """
-        return P2PCommTeledata.qrecv(self, src_rank)
+        return P2PCommTeledata.qrecv(self, src_rank, expected_qubits)
 
     def qscatter(self, qubits: List[Qubit], rank_sender: int) -> List[Qubit]:
         return CollectiveCommTeledata.qscatter(self, qubits, rank_sender)

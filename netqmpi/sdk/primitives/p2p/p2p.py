@@ -90,6 +90,8 @@ class P2PCommTeledata(P2PComm):
             q.cnot(epr)
             epr.cnot(q)
 
+            epr.measure()  # Clean up the EPR qubit
+
             qubits.append(q)
 
         return qubits

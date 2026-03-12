@@ -99,7 +99,7 @@ class CollectiveCommTeledata(CollectiveComm):
             for i in range(size):
                 if i != rank_recv:
                     print(f"[{rank}] Recibiendo qubits de {i}")
-                    received_qubits[i] = communicator.qrecv(i)
+                    received_qubits[i] = communicator.qrecv(i, expected_qubits=len(qubits))
                 else:
                     # If the current rank is the receiver, add its own qubits to the list
                     received_qubits[i] = qubits
